@@ -1,6 +1,7 @@
 source("http://wush978.github.io/R/init-swirl.R")
 
 
+Sys.setlocale(category = "LC_ALL", locale = "cht")
 
 library(swirl)
 swirl()
@@ -8,7 +9,6 @@ swirl()
 
 Sys.setlocale(locale = "cht")
 
-Sys.setlocale(category = "LC_ALL", locale = "cht")
 
 
 library(magrittr)
