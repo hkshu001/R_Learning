@@ -4,7 +4,7 @@ pkg_list <- c("ggplot2", "plyr", "dplyr", "reshape2", "Rcpp", "digest", "stringr
   "png", "pryr", "purrr", "rcorpora", "readr",  "tibble", "tidyr",
   "qdap","magrittr","data.table","devtools","readxl","openxlsx","dtplyr","leaftlet", 
   "ggplot2movies","ggthemes","ggthemr","extrafont", "cowplot", "ggrepel","plotly",
-  "prettydoc","colorspace","installr", "httr","jsonlite","rvest")
+  "prettydoc","colorspace","installr", "httr","jsonlite","rvest","ggforce")
 
 pkg_new <- pkg_list[!(pkg_list %in% installed.packages()[,"Package"])]
 if(length(pkg_new)) install.packages(pkg_new)
