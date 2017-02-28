@@ -4,6 +4,7 @@ Sys.setlocale(category = "LC_ALL", locale = "cht")
 library(swirl)
 swirl()
 
+rm(list=ls())
 
 # swirl courses_20170124
 # https://github.com/swirldev/swirl_courses

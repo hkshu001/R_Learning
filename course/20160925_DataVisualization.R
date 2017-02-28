@@ -78,7 +78,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 # Notice:
 # If the aesthetic in aes(): it is a map aesthetic and legend be created automatically
-# If the aesthetic out od aes(): a specific aesthetic can be tuned by manual
+# If the aesthetic out of aes(): a specific aesthetic can be tuned by manual
 
 
 
