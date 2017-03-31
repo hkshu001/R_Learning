@@ -2,49 +2,59 @@ library(ggplot2)
 library(dplyr)
 library(magrittr)
 
-
-# ============= ggplot2 plotting example template===============
+# ============= ggplot2 plotting basic template===============
 # ggplot(data = <DATA>) + # Data
 #   geom_<xxx>(
 #     mapping = aes(<MAPPINGS>),
 #     stat = <STAT>,
 #     position = <POSITION>
-#   ) + # Layers & Aesthetic mappings
+#     ) + # Layers & Aesthetic mappings
 #   scale_<xxx>() + coord_<xxx>() + facet_<xxx>() # Position
 # theme_()
+
+## ggplot: data source assign
+## geom: visual marks that represent data points
+## Notice:
+## In each geom_<xxx> is with a default stat_<xxx>
+## geom_point(stat="identity); geom_bar(stat="count")
+## It is important to make sure what's the default stat_<xxx> before plot
+## A better way is to calculate stats manual before plot
 # ==============================================================
 
-# ggplot: data source assign
-# geom: visual marks that represent data points
+# Scatter plot: geom_point()
+#----------------------------------------------------------------
+# Usage:
+  geom_point(mapping = NULL, data = NULL, stat = "identity",
+             position = "identity", ..., na.rm = FALSE, show.legend = NA,
+             inherit.aes = TRUE)
+# Aesthetics:
+  # required: x, y
+  # optional: alpha, color, fill, shape, size
+#----------------------------------------------------------------
+  # Examples:
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy))
+  
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = hwy, y = cyl))
+  
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = class, y = drv))
 
-# Notice:
-# In each geom_<xxx> is with a default stat_<xxx>
-# geom_point(stat="identity); geom_bar(stat="count")
-# It is important to make sure what's the default stat_<xxx> before plot
-# A better way is to calculate stats manual before plot
-
-
-# geoms example: Scatterplots
-# plot different variables by change x, y
-# displ vs hwy
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy))
-# hwy vs cyl
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = hwy, y = cyl))
-# class vs drv
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = class, y = drv))
-
-# Scatterplots; class group is presented by different colors 
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy, color = class))
-# Scatterplots; class group is presented by the transparent
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
-# Scatterplots; class group is presented by legend shape
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+  # Scatter plot: class group is presented by different colors 
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy, color = class))
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy, fill = class)) 
+  
+  
+  
+  # Scatterplots; class group is presented by the transparent
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy, alpha = class))
+  # Scatterplots; class group is presented by legend shape
+  ggplot(data = mpg) +
+    geom_point(mapping = aes(x = displ, y = hwy, shape = class))
 
 
 # aes() can be put in different position
